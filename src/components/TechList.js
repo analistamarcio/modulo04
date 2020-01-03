@@ -20,7 +20,7 @@ class TechList extends Component {
     e.preventDefault();
 
     // check if textbox isn't empty and if tech doesn't already exists
-    if (this.state.newTech !== '' && this.state.techs.indexOf(this.state.newTech) <0) {
+    if (this.state.newTech !== '' && this.state.techs.map(t => t.toLowerCase() === this.state.newTech.toLowerCase()).every(f => f === false)) {
       this.setState({ techs: [... this.state.techs, this.state.newTech] });
       // clear textbox
       this.setState({ newTech: '' })
